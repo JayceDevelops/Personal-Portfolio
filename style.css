@@ -4,48 +4,34 @@
 }
 
 body {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
     grid-template-rows: auto auto;
     background: url('./assets/images/background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
-    width: 100%;
+    background-attachment: fixed;
     margin: 0;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(1.75px);
 }
 
 /* Navigation Bar */
 nav {
-    grid-row: 1;
-    height: 7vh;
+    min-height: auto;
     background-color: transparent;
-    display: grid;
-    grid-template-columns: max-content max-content max-content max-content auto auto max-content;
-    grid-template-rows: auto;
-    column-gap: 0;
+    display: flex;
     align-items: center;
-    width: 100%; 
-    margin: 0 0 0 0;
-    flex-shrink: 1;
-    flex-grow: 1;
+    justify-content: center;
 }
 
 .page {
-    height: 50%;
     display: flex;
-    font-size: 1rem;
-    letter-spacing: 0.01rem;
+    font-size: clamp(0.75rem, 5vw, 1.10rem);
     background-color: transparent;
     border: none;
     color: #1C1C1C;
-    width: fit-content;
-    padding: 0;
-    margin: 0 1rem 0 2rem;
-    align-items: center;
-    flex-grow: 1;
-    flex-shrink: 1;
+    margin: 1rem 1rem 0 2rem;
 }
 
 .page:hover {
@@ -54,9 +40,9 @@ nav {
 
 #currentPage {
     height: fit-content;
-    margin: 0 1rem 0 3rem;
     display: flex;
     flex-direction: column;
+    margin: 1rem 1rem 0 2rem;
     justify-content: center;
     align-items: center;
 }
@@ -74,12 +60,11 @@ nav {
 }
 
 #contact {
-    grid-column: 7;
     border: solid 1.5px #1A437F;
     border-radius: 3px;
     height: fit-content;
     padding: 0.2rem 1.2rem;
-    margin: 0 2rem 0 0;
+    margin: 1rem 1rem 0 auto;
     color: #1C1C1C;
     font-weight: 500;
     box-shadow: 0px 1px 3px #1A437F;
@@ -97,53 +82,67 @@ nav {
     box-shadow: none;
 }
 
+@media screen and (max-width: 980px){
+    #contact {
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #currentPage {
+        margin: 1rem 0rem 0 3rem;
+    }
+
+    .page {
+        margin: 1rem 0 0 1.5rem;
+    }
+}
+
 /***********************************************/
 
 main {
-    width: 100%;
     height: 100vh;
     width: 100%;
-    margin: 0 0 0 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin: 0;
+    padding: 0 0 0 2rem;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto max-content max-content max-content max-content auto;
 
 }
 
 main h1 {
-    width: max-content;
-    height: auto;
-    font-size: 4rem;
+    font-size: clamp(2rem, 5vw, 4rem);
     color:#FFFFFF;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     margin: 0;
     overflow: auto;
+    grid-row: 2;
 }
 
 .secondLine {
-    width: fit-content;
-    height: fit-content;
     margin-bottom: 1rem;
+    grid-row: 3;
 }
 
 main h4 {
-    width: fit-content;
-    height: fit-content;
     font-weight: 900;
     font-size: 1rem;
     color: #F5F5F5;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     max-width: 600px;
     margin-bottom: 1.5rem;
+    grid-row: 4;
 }
 
 #directButtons {
     width: fit-content;
+    grid-row: 5;
 }
 
 #directButtons button {
     padding: 0.75rem 1.5rem;
-    margin: 0 1rem 0 0;
+    margin: 0 1rem 1rem 0;
     border: solid 1.5px;
     border-radius: 3px;
     cursor: pointer;
