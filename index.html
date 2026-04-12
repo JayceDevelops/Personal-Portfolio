@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jayce Develops</title>
     <link href="/style.css" rel="stylesheet">
+    <script src="script.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,14 +16,21 @@
 </head>
 <body>
     <nav>
-        <div id="currentPage">
-            <h3 class="page open-sans-font" id="home">Home</h3>
-            <hr>
+        <button id="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div id="nav-links">
+            <div id="currentPage">
+                <h3 class="page open-sans-font" id="home">Home</h3>
+                <hr>
+            </div>
+            <h3 class="page open-sans-font">About Me</h3>
+            <h3 class="page open-sans-font">Projects</h3>
+            <h3 class="page open-sans-font">Experience</h3>
+            <button class="page open-sans-font" id="contact">Contact</button>
         </div>
-        <h3 class="page open-sans-font">About Me</h3>
-        <h3 class="page open-sans-font">Projects</h3>
-        <h3 class="page open-sans-font">Experience</h3>
-        <button class="page open-sans-font" id="contact">Contact</button>
     </nav>
         <main>
             <h1 class="open-sans-font">I build elegant and</h1>
@@ -33,5 +41,21 @@
                 <button class="unfilled open-sans-font" id="connect">Let's Connect</button>
             </div>
         </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
+
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('open');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

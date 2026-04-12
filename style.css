@@ -13,16 +13,45 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     margin: 0;
-    backdrop-filter: blur(1.75px);
+    backdrop-filter: blur(1px);
 }
 
 /* Navigation Bar */
 nav {
+    
     min-height: auto;
     background-color: transparent;
     display: flex;
     align-items: center;
-    justify-content: center;
+}
+
+#hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 1.5rem 0 0 1.5rem;
+    flex-shrink: 0;
+}
+
+#hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #1C1C1C;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+#nav-links {
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .page {
@@ -64,7 +93,7 @@ nav {
     border-radius: 3px;
     height: fit-content;
     padding: 0.2rem 1.2rem;
-    margin: 1rem 1rem 0 auto;
+    margin: 1rem 2rem 0 auto;
     color: #1C1C1C;
     font-weight: 500;
     box-shadow: 0px 1px 3px #1A437F;
@@ -89,13 +118,38 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
-    #currentPage {
-        margin: 1rem 0rem 0 3rem;
+    nav {
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
     }
 
-    .page {
-        margin: 1rem 0 0 1.5rem;
+    #hamburger {
+        display: flex;
+        margin-top: 2rem;
+        margin: 1rem 1rem;
     }
+
+    #nav-links {
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow: hidden;
+    }
+
+    #nav-links.open {
+        display: flex;
+    }
+
+    #nav-links .page,
+    #nav-links #currentPage {
+        margin: 0 1rem 0 0.5rem;
+        font-size: clamp(0.5rem, 3vw, 0.85rem);
+        white-space: nowrap;
+        padding: 0 0;
+    }
+
 }
 
 /***********************************************/
@@ -108,10 +162,10 @@ main {
     box-sizing: border-box;
     display: grid;
     grid-template-rows: auto max-content max-content max-content max-content auto;
-
 }
 
 main h1 {
+    width: fit-content;
     font-size: clamp(2rem, 5vw, 4rem);
     color:#FFFFFF;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
