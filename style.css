@@ -22,7 +22,7 @@ nav {
     background-color: transparent;
     display: flex;
     align-items: center;
-    backdrop-filter: blur(2.25px);
+    backdrop-filter: blur(4px);
 }
 
 #hamburger {
