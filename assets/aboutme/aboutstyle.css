@@ -239,7 +239,7 @@ main {
 
 /* Media Config */
 
-@media screen and (max-width: 980px){
+@media screen and (max-width: 1300px){
     #contact {
         visibility: hidden;
     }
